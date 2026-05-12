@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GodPackDraco - Links</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffffff 50%, #ef4444 50%);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .pokeball {
+      position: relative;
+    }
+    .pokeball::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle at 50% 50%, #fff 0%, #fff 42%, #111 43%, #111 57%, #ef4444 58%, #ef4444 100%);
+      border: 8px solid #111;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: -1;
+    }
+    .card {
+      background: rgba(255,255,255,0.95);
+      color: #111;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.3);
+    }
+    .red-accent {
+      color: #ef4444;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center py-12 px-6">
+  <div class="max-w-md w-full mx-auto text-center">
+    
+    <!-- Pokeball Header -->
+    <div class="pokeball mb-8">
+      <div class="w-28 h-28 mx-auto rounded-full border-8 border-black bg-white flex items-center justify-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-red-500"></div>
+        <div class="absolute top-1/2 left-0 right-0 h-px bg-black"></div>
+        <div class="w-10 h-10 bg-white border-4 border-black rounded-full flex items-center justify-center">
+          <div class="w-5 h-5 bg-black rounded-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <h1 id="GodpackDraco" class="text-4xl font-bold text-black mb-1">GodpackDraco</h1>
+    <p id="username" class="text-zinc-600 mb-6">@GodpackDraco</p>
+    <p id="bio" class="text-zinc-700 mb-10 max-w-xs mx-auto">
+      Catch me on the internet • Trainer since 2005
+    </p>
+
+    <!-- Links -->
+    <div class="space-y-4" id="links-container">
+      <!-- Links added by JS -->
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-12 text-xs text-zinc-500 flex items-center justify-center gap-2">
+      <span>Made with ❤️ + Pokéballs</span>
+    </div>
+  </div>
+
+  <script>
+    const links = [
+      { name: "X / Twitter", url: "https://x.com/wcignorance", icon: "fa-brands fa-x-twitter" },
+      { name: "Instagram", url: "https://instagram.com/godpackdraco", icon: "fa-brands fa-instagram" },
+      { name: "YouTube", url: "https://youtube.com/@godpackdraco", icon: "fa-brands fa-youtube" },
+      { name: "TikTok", url: "https://tiktok.com/@godpackdraco", icon: "fa-brands fa-tiktok" },
+      { name: "Whatnot", url: "https://www.whatnot.com/s/624510S3", icon: "fa-brands fa-whatnot" },
+      { name: "Ebay / Portfolio", url: "https://ebay.us/m/vonNfb", icon: "fa-brands fa-ebay" },
+      // Add or remove as you like
+    ];
+
+    const container = document.getElementById('links-container');
+    
+    links.forEach(link => {
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.target = "_blank";
+      a.className = `card block px-6 py-5 rounded-3xl border border-zinc-200 flex items-center gap-4 text-left font-medium text-lg shadow-sm`;
+      
+      a.innerHTML = `
+        <i class="${link.icon} text-2xl red-accent w-8"></i>
+        <span>${link.name}</span>
+      `;
+      container.appendChild(a);
+    });
+
+    // Customize these:
+    document.getElementById('name').textContent = "Your Name";
+    document.getElementById('username').textContent = "@yourusername";
+    document.getElementById('bio').textContent = "Your short bio or tagline here";
+  </script>
+</body>
+</html>
